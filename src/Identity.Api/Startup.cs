@@ -27,6 +27,7 @@ namespace Identity.Api
         {
             services.AddControllers();
 
+            // Add connection with identity server
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
@@ -35,6 +36,17 @@ namespace Identity.Api
 
                     options.Audience = "api1";
                 });
+
+            services.AddCors(options =>
+            {
+                // this defines a CORS policy called "default"
+                options.AddPolicy("default", policy =>
+                        {
+                            policy.WithOrigins("https://localhost:44369")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                        });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +60,8 @@ namespace Identity.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("default");
 
             app.UseAuthentication();
             app.UseAuthorization();
