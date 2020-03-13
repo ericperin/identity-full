@@ -30,8 +30,8 @@ namespace Identity.Api
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = "http://localhost:50000";
-                    options.RequireHttpsMetadata = false;
+                    options.Authority = "https://localhost:5000";
+                    options.RequireHttpsMetadata = true;
 
                     options.Audience = "api1";
                 });

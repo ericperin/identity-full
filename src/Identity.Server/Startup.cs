@@ -38,6 +38,7 @@ namespace Identity.Server
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseHttpsRedirection();
 
             // uncomment if you want to add MVC
             //app.UseStaticFiles();
