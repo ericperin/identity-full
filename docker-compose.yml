@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  server:
+    image: ${DOCKER_REGISTRY-}identityserver
+    container_name: identity-server
+    build:
+      context: .
+      dockerfile: src/Identity.Server/Dockerfile
