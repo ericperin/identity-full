@@ -12,7 +12,11 @@ Add your entire Laravel project to the `src` folder, then open a terminal and fr
 
 - `docker-compose run --rm composer update`
 - `docker-compose run --rm npm run dev`
-- `docker-compose run --rm artisan migrate` 
+- `docker-compose run --rm artisan migrate`
+
+Start laravel
+- `cp src/.env.example src/.env`
+- `docker-compose exec php php artisan key:generate`
 
 Containers created and their ports (if used) are as follows:
 
