@@ -17,6 +17,7 @@ Add your entire Laravel project to the `src` folder, then open a terminal and fr
 Start laravel
 - `cp src/.env.example src/.env`
 - `docker-compose exec php php artisan key:generate`
+- `docker-compose run --rm composer require jumbojett/openid-connect-php`
 
 Containers created and their ports (if used) are as follows:
 
