@@ -69,13 +69,17 @@ namespace Identity.Server
                 {
                     ClientId = "js",
                     ClientName = "JavaScript Client",
-                    AllowedGrantTypes = GrantTypes.Code,
-                    RequirePkce = true,
-                    RequireClientSecret = false,
+                    ClientSecrets = { new Secret("secret".Sha256()) }, // Not work
 
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequireConsent = false,
+                    RequirePkce = true,
+                    RequireClientSecret = false, // TODO: Only work with secret if is set false
+                    AllowAccessTokensViaBrowser = true,
+
+                    AllowedCorsOrigins =     { "https://localhost:44369" },
                     RedirectUris =           { "https://localhost:44369/callback.html" },
                     PostLogoutRedirectUris = { "https://localhost:44369/index.html" },
-                    AllowedCorsOrigins =     { "https://localhost:44369" },
 
                     AllowedScopes =
                     {

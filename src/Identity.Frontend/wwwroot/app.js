@@ -21,8 +21,9 @@ document.getElementById("logout").addEventListener("click", logout, false);
 var config = {
     authority: "https://localhost:5000",
     client_id: "js",
+    client_secret: "secret",
     redirect_uri: "https://localhost:44369/callback.html",
-    response_type: "code",
+    response_type: "code id_token",
     scope: "openid profile api1",
     post_logout_redirect_uri: "https://localhost:44369/index.html"
 };
